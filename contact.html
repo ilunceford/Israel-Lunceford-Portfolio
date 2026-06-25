@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Israel Lunceford</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Main navigation">
+            <a class="brand" href="index.html">Israel Lunceford</a>
+            <div class="nav-links">
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="contact.html" aria-current="page">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="contact-copy">
+                <p class="eyebrow">Contact</p>
+                <h1>Let me know what you would like to build, discuss, or review.</h1>
+                <p class="hero-text">
+                    Fill out the form below with your name, email, reason for reaching out, and message.
+                    The page will prepare a clean email draft from your details.
+                </p>
+
+                <aside class="contact-info" aria-label="Direct contact information">
+                    <h2>Contact Info</h2>
+                    <div class="contact-method">
+                        <span>Email</span>
+                        <a href="mailto:Israel.lunceford00@gmail.com">Israel.lunceford00@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <span>Phone</span>
+                        <a href="tel:+14802747754">480-274-7754</a>
+                    </div>
+                </aside>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="reason">Reason</label>
+                    <select id="reason" name="reason" required>
+                        <option value="">Choose one</option>
+                        <option value="Project Opportunity">Project Opportunity</option>
+                        <option value="Portfolio Feedback">Portfolio Feedback</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="General Question">General Question</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="7" required></textarea>
+                    <div class="form-helper">
+                        <span class="error-message" id="messageError"></span>
+                        <span id="characterCount">0 characters</span>
+                    </div>
+                </div>
+
+                <button class="button primary form-submit" type="submit">Create Email Draft</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Israel Lunceford. Project portfolio built with HTML, CSS, and JavaScript.</p>
+    </footer>
+</body>
+</html>
