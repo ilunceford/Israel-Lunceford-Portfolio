@@ -386,6 +386,50 @@ h3 {
     margin-bottom: 0;
 }
 
+.mini-form,
+.recommendation-panel {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    background:
+        linear-gradient(135deg, rgba(154, 77, 255, 0.2), rgba(255, 64, 95, 0.14)),
+        rgba(255, 255, 255, 0.06);
+}
+
+.recommendation-panel {
+    margin: 0 0 32px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+.recommendation-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.message-preview {
+    margin-bottom: 18px;
+}
+
+.errorlist {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    color: #ff9caf;
+    font-size: 0.9rem;
+    font-weight: 700;
+    list-style: none;
+}
+
+.report-page h1 {
+    margin-bottom: 18px;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 18px;
+}
+
 .site-footer {
     width: min(1120px, calc(100% - 32px));
     margin: 0 auto;
@@ -584,7 +628,8 @@ textarea:focus {
     }
 
     .project-grid,
-    .skill-grid {
+    .skill-grid,
+    .report-grid {
         grid-template-columns: 1fr;
     }
 }

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Israel Lunceford Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'main.js' %}" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Main navigation">
+            <a class="brand" href="{% url 'home' %}">Israel Lunceford</a>
+            <div class="nav-links">
+                <a href="{% url 'home' %}#projects">Projects</a>
+                <a href="{% url 'home' %}#skills">Skills</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'report' %}">Report</a>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Israel Lunceford. Project portfolio built with Django, HTML, CSS, and JavaScript.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends "showcase/base.html" %}
+
+{% block title %}Contact Israel Lunceford{% endblock %}
+
+{% block content %}
+<main>
+    <section class="contact-hero">
+        <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h1>Let me know what you would like to build, discuss, or review.</h1>
+            <p class="hero-text">
+                This Django form checks your input and then displays a message preview when everything is valid.
+            </p>
+
+            <aside class="contact-info" aria-label="Direct contact information">
+                <h2>Contact Info</h2>
+                <div class="contact-method">
+                    <span>Email</span>
+                    <a href="mailto:israel.lunceford00@gmail.com">israel.lunceford00@gmail.com</a>
+                </div>
+                <div class="contact-method">
+                    <span>Phone</span>
+                    <a href="tel:+14802747754">480-274-7754</a>
+                </div>
+            </aside>
+        </div>
+
+        <div>
+            {% if submitted_message %}
+            <section class="recommendation-panel message-preview" aria-live="polite">
+                <p class="eyebrow">Message Preview</p>
+                <h2>Thanks, {{ submitted_message.name }}.</h2>
+                <p><strong>Reply email:</strong> {{ submitted_message.email }}</p>
+                <p><strong>Reason:</strong> {{ submitted_message.reason }}</p>
+                <p>{{ submitted_message.message }}</p>
+            </section>
+            {% endif %}
+
+            <form class="contact-form" method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-row">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+                <div class="form-row">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="form-row">
+                    {{ form.reason.label_tag }}
+                    {{ form.reason }}
+                    {{ form.reason.errors }}
+                </div>
+                <div class="form-row">
+                    {{ form.message.label_tag }}
+                    {{ form.message }}
+                    {{ form.message.errors }}
+                </div>
+                <button class="button primary form-submit" type="submit">Preview Message</button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
