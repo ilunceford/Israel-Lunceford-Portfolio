@@ -21,6 +21,7 @@ Instructions for using the software:
 6. Open the report page to review the completed assignment requirements.
 7. Open the 4-bit CPU section to inspect the architecture overview and download `ECEN240_Final_Project_4bit_CPU.circ`.
 8. Download `Final_Proj_All_code.txt` to inspect or reload the CPU's instruction ROM program.
+9. Open the full-size `4bit-cpu.jpg` screenshot to inspect the complete Logisim circuit, active signals, and TTY character output.
 
 ## 4-bit CPU Circuit
 

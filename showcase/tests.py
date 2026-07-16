@@ -8,6 +8,9 @@ class PortfolioHomeTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "ECEN 240 Final Project: 4-bit CPU")
+        self.assertContains(response, "Actual Logisim circuit")
+        self.assertContains(response, reverse("cpu_screenshot"))
+        self.assertContains(response, "prints character output to the TTY")
         self.assertContains(response, "How to open and use the CPU")
         self.assertContains(response, "Program the ROM from the text file")
         self.assertContains(response, "1003 2700 1004 1109")
@@ -31,3 +34,11 @@ class PortfolioHomeTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("Final_Proj_All_code.txt", response.headers["Content-Disposition"])
         self.assertTrue(content.startswith(b"v3.0 hex words addressed"))
+
+    def test_cpu_screenshot_returns_jpeg(self):
+        response = self.client.get(reverse("cpu_screenshot"))
+        content = b"".join(response.streaming_content)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers["Content-Type"], "image/jpeg")
+        self.assertTrue(content.startswith(b"\xff\xd8\xff"))

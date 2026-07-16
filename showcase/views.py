@@ -7,6 +7,7 @@ from .forms import ContactForm, ProjectRecommendationForm
 
 CPU_FILENAME = "ECEN240_Final_Project_4bit_CPU.circ"
 CPU_PROGRAM_FILENAME = "Final_Proj_All_code.txt"
+CPU_SCREENSHOT_FILENAME = "4bit-cpu.jpg"
 
 
 PROJECTS = [
@@ -107,6 +108,18 @@ def cpu_program_download(request):
         as_attachment=True,
         filename=CPU_PROGRAM_FILENAME,
         content_type="text/plain",
+    )
+
+
+def cpu_screenshot(request):
+    screenshot_path = settings.BASE_DIR / CPU_SCREENSHOT_FILENAME
+    if not screenshot_path.exists():
+        raise Http404("CPU screenshot not found.")
+
+    return FileResponse(
+        screenshot_path.open("rb"),
+        filename=CPU_SCREENSHOT_FILENAME,
+        content_type="image/jpeg",
     )
 
 
