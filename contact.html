@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Israel Lunceford about software development, computer engineering, collaboration, or portfolio feedback.">
     <title>Contact Israel Lunceford</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/main.js" defer></script>
@@ -10,27 +11,31 @@
 <body>
     <header class="site-header">
         <nav class="nav-shell" aria-label="Main navigation">
-            <a class="brand" href="index.html">Israel Lunceford</a>
+            <a class="brand" href="index.html" aria-label="Israel Lunceford home">
+                <span class="brand-mark">IL</span>
+                <span>Israel Lunceford</span>
+            </a>
             <div class="nav-links">
-                <a href="index.html#projects">Projects</a>
+                <a href="index.html#projects">Work</a>
+                <a href="index.html#cpu">4-bit CPU</a>
                 <a href="index.html#skills">Skills</a>
                 <a href="contact.html" aria-current="page">Contact</a>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main class="page-main">
         <section class="contact-hero">
-            <div class="contact-copy">
+            <div class="contact-copy" data-reveal>
                 <p class="eyebrow">Contact</p>
-                <h1>Let me know what you would like to build, discuss, or review.</h1>
-                <p class="hero-text">
-                    Fill out the form below with your name, email, reason for reaching out, and message.
-                    The page will prepare a clean email draft from your details.
+                <h1>Let&#39;s talk about what you are building.</h1>
+                <p class="page-copy">
+                    Share a project opportunity, collaboration idea, or portfolio question. The form will
+                    check your message and prepare an email draft in your default mail app.
                 </p>
 
                 <aside class="contact-info" aria-label="Direct contact information">
-                    <h2>Contact Info</h2>
+                    <h2>Direct contact</h2>
                     <div class="contact-method">
                         <span>Email</span>
                         <a href="mailto:israel.lunceford00@gmail.com">israel.lunceford00@gmail.com</a>
@@ -42,7 +47,7 @@
                 </aside>
             </div>
 
-            <form class="contact-form" id="contactForm" novalidate>
+            <form class="contact-form" id="contactForm" novalidate data-reveal>
                 <div class="form-row">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" autocomplete="name" required>
@@ -83,7 +88,8 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Israel Lunceford. Project portfolio built with HTML, CSS, and JavaScript.</p>
+        <p>&copy; <span data-current-year>2026</span> Israel Lunceford</p>
+        <p>Software + computer engineering portfolio</p>
     </footer>
 </body>
 </html>

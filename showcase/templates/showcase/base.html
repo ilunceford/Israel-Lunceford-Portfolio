@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Israel Lunceford's software and computer engineering portfolio, featuring application projects and a 4-bit CPU built in Logisim-evolution.">
     <title>{% block title %}Israel Lunceford Portfolio{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script src="{% static 'main.js' %}" defer></script>
@@ -11,12 +12,16 @@
 <body>
     <header class="site-header">
         <nav class="nav-shell" aria-label="Main navigation">
-            <a class="brand" href="{% url 'home' %}">Israel Lunceford</a>
+            <a class="brand" href="{% url 'home' %}" aria-label="Israel Lunceford home">
+                <span class="brand-mark">IL</span>
+                <span>Israel Lunceford</span>
+            </a>
             <div class="nav-links">
-                <a href="{% url 'home' %}#projects">Projects</a>
+                <a href="{% url 'home' %}#projects">Work</a>
+                <a href="{% url 'home' %}#cpu">4-bit CPU</a>
                 <a href="{% url 'home' %}#skills">Skills</a>
-                <a href="{% url 'contact' %}">Contact</a>
-                <a href="{% url 'report' %}">Report</a>
+                <a href="{% url 'contact' %}"{% if request.resolver_match.url_name == 'contact' %} aria-current="page"{% endif %}>Contact</a>
+                <a href="{% url 'report' %}"{% if request.resolver_match.url_name == 'report' %} aria-current="page"{% endif %}>Report</a>
             </div>
         </nav>
     </header>
@@ -24,7 +29,8 @@
     {% block content %}{% endblock %}
 
     <footer class="site-footer">
-        <p>&copy; 2026 Israel Lunceford. Project portfolio built with Django, HTML, CSS, and JavaScript.</p>
+        <p>&copy; <span data-current-year>2026</span> Israel Lunceford</p>
+        <p>Software + computer engineering portfolio</p>
     </footer>
 </body>
 </html>

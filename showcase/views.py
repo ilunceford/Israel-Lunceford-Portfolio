@@ -1,6 +1,12 @@
+from django.conf import settings
+from django.http import FileResponse, Http404
 from django.shortcuts import render
 
 from .forms import ContactForm, ProjectRecommendationForm
+
+
+CPU_FILENAME = "ECEN240_Final_Project_4bit_CPU.circ"
+CPU_PROGRAM_FILENAME = "Final_Proj_All_code.txt"
 
 
 PROJECTS = [
@@ -12,6 +18,8 @@ PROJECTS = [
         "features": ["Game board structure", "Piece movement logic", "Interactive play experience"],
         "github": "https://github.com/ilunceford/Chess-Game-CSE310",
         "demo": "https://youtu.be/hnBraJea2mY",
+        "image": "https://i.ytimg.com/vi/hnBraJea2mY/hqdefault.jpg",
+        "image_alt": "Chess Game project demo preview",
         "match": "logic",
     },
     {
@@ -22,6 +30,8 @@ PROJECTS = [
         "features": ["Canvas-style interaction", "Creative user controls", "Visual feedback while drawing"],
         "github": "https://github.com/ilunceford/cse-310-sprint2-paint-program",
         "demo": "https://youtu.be/qaKhNTbw5m4",
+        "image": "https://i.ytimg.com/vi/qaKhNTbw5m4/hqdefault.jpg",
+        "image_alt": "Paint Program project demo preview",
         "match": "creative",
     },
     {
@@ -32,6 +42,8 @@ PROJECTS = [
         "features": ["Button-based input", "Calculation flow", "Clean utility interface"],
         "github": "https://github.com/ilunceford/cse310-sprint3-calculator",
         "demo": "https://youtu.be/XpUiToTScbg",
+        "image": "https://i.ytimg.com/vi/XpUiToTScbg/hqdefault.jpg",
+        "image_alt": "Calculator project demo preview",
         "match": "utility",
     },
     {
@@ -42,6 +54,8 @@ PROJECTS = [
         "features": ["Study-focused experience", "Mobile app structure", "Flash card review flow"],
         "github": "https://github.com/ilunceford/cse310-sprint4-flash-card-mobile-app",
         "demo": "https://youtu.be/UPJGGu4-4F0",
+        "image": "https://i.ytimg.com/vi/UPJGGu4-4F0/hqdefault.jpg",
+        "image_alt": "Flash Card Mobile App project demo preview",
         "match": "mobile",
     },
 ]
@@ -61,7 +75,38 @@ def home(request):
     return render(
         request,
         "showcase/home.html",
-        {"projects": PROJECTS, "form": form, "recommendation": recommendation},
+        {
+            "projects": PROJECTS,
+            "portfolio_project_count": len(PROJECTS) + 1,
+            "form": form,
+            "recommendation": recommendation,
+        },
+    )
+
+
+def cpu_download(request):
+    circuit_path = settings.BASE_DIR / CPU_FILENAME
+    if not circuit_path.exists():
+        raise Http404("CPU circuit file not found.")
+
+    return FileResponse(
+        circuit_path.open("rb"),
+        as_attachment=True,
+        filename=CPU_FILENAME,
+        content_type="application/xml",
+    )
+
+
+def cpu_program_download(request):
+    program_path = settings.BASE_DIR / CPU_PROGRAM_FILENAME
+    if not program_path.exists():
+        raise Http404("CPU ROM program file not found.")
+
+    return FileResponse(
+        program_path.open("rb"),
+        as_attachment=True,
+        filename=CPU_PROGRAM_FILENAME,
+        content_type="text/plain",
     )
 
 

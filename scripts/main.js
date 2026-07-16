@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 const contactForm = document.querySelector("#contactForm");
 const messageInput = document.querySelector("#message");
 const characterCount = document.querySelector("#characterCount");
@@ -82,7 +84,34 @@ function createMailtoLink() {
         `${fields.message.value.trim()}`
     );
 
-    return `mailto:?subject=${subject}&body=${body}`;
+    return `mailto:israel.lunceford00@gmail.com?subject=${subject}&body=${body}`;
+}
+
+document.querySelectorAll("[data-current-year]").forEach((element) => {
+    element.textContent = new Date().getFullYear();
+});
+
+const revealItems = document.querySelectorAll("[data-reveal]");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+} else {
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
 }
 
 if (messageInput) {

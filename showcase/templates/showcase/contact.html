@@ -3,17 +3,18 @@
 {% block title %}Contact Israel Lunceford{% endblock %}
 
 {% block content %}
-<main>
+<main class="page-main">
     <section class="contact-hero">
-        <div class="contact-copy">
+        <div class="contact-copy" data-reveal>
             <p class="eyebrow">Contact</p>
-            <h1>Let me know what you would like to build, discuss, or review.</h1>
-            <p class="hero-text">
-                This Django form checks your input and then displays a message preview when everything is valid.
+            <h1>Let&#39;s talk about what you are building.</h1>
+            <p class="page-copy">
+                Share a project opportunity, collaboration idea, or portfolio question. This Django form
+                checks your message and displays a preview when everything is valid.
             </p>
 
             <aside class="contact-info" aria-label="Direct contact information">
-                <h2>Contact Info</h2>
+                <h2>Direct contact</h2>
                 <div class="contact-method">
                     <span>Email</span>
                     <a href="mailto:israel.lunceford00@gmail.com">israel.lunceford00@gmail.com</a>
@@ -25,7 +26,7 @@
             </aside>
         </div>
 
-        <div>
+        <div data-reveal>
             {% if submitted_message %}
             <section class="recommendation-panel message-preview" aria-live="polite">
                 <p class="eyebrow">Message Preview</p>

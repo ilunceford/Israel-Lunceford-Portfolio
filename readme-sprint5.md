@@ -1,6 +1,6 @@
 # Israel Lunceford Django Portfolio Website
 
-This project is a Django web app for my personal portfolio. It demonstrates my previous CSE 310 projects, includes project cards with GitHub repository links and YouTube demo links, provides a contact page, validates user input, and dynamically changes generated HTML based on form submissions.
+This project is a Django web app for my personal software and computer engineering portfolio. It demonstrates my previous CSE 310 projects, includes project cards with GitHub repository links and YouTube demo links, and features my ECEN 240 4-bit CPU circuit. The site also provides a contact page, validates user input, and dynamically changes generated HTML based on form submissions.
 
 ## Instructions for Build and Use
 
@@ -19,6 +19,36 @@ Instructions for using the software:
 4. Fill out the recommendation form on the home page to receive a project recommendation.
 5. Open the contact page to view my contact information or submit a message preview.
 6. Open the report page to review the completed assignment requirements.
+7. Open the 4-bit CPU section to inspect the architecture overview and download `ECEN240_Final_Project_4bit_CPU.circ`.
+8. Download `Final_Proj_All_code.txt` to inspect or reload the CPU's instruction ROM program.
+
+## 4-bit CPU Circuit
+
+The CPU circuit was built for Logisim-evolution 4.0.0. The project contains six circuits, including the top-level CPU, a three-port register file, four-bit registers, an add/subtract ALU, and a full adder.
+
+Steps to open and run the circuit:
+
+1. Install Logisim-evolution 4.0.0 or newer from the [official releases page](https://github.com/logisim-evolution/logisim-evolution/releases).
+2. Open Logisim-evolution and choose `File`, then `Open`.
+3. Select `ECEN240_Final_Project_4bit_CPU.circ`.
+4. Open the `Final_Project` circuit and select the Poke tool.
+5. Pulse the `CLR` input to reset the circuit.
+6. Enable simulation ticks or click the clock manually, then watch the probes and TTY output.
+
+### Programming the Instruction ROM
+
+The instruction ROM program is embedded in the circuit. `Final_Proj_All_code.txt` contains the same program as a Logisim `v3.0 hex words addressed` memory image for the 256-word, 16-bit instruction ROM.
+
+Steps to reload the ROM from the text file:
+
+1. Open the `Final_Project` circuit and locate the large instruction ROM connected to the program counter.
+2. Open the ROM's `Edit Contents` hex editor.
+3. Use the editor's open/load command and select `Final_Proj_All_code.txt`.
+4. Confirm that address `00` begins with `1003 2700 1004 1109`.
+5. Close the editor and save the circuit.
+6. Pulse `CLR`, enable simulation ticks, and watch the probes and TTY as the program executes.
+
+The original project also references helper circuit libraries from its development folder, so keep those libraries available if Logisim-evolution prompts for them after the file is moved to another computer.
 
 ## Development Environment
 
@@ -45,7 +75,7 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] Add screenshots or preview images for each project card.
+* [ ] Add a full Logisim circuit screenshot or recorded CPU walkthrough.
 * [ ] Add a backend or form service so contact messages can be submitted directly.
 * [ ] Add more project details, including technologies used and lessons learned.
 * [ ] Improve accessibility testing and keyboard navigation.
